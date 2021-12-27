@@ -1,0 +1,68 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.head-mrf {
+    margin-top: 0px;
+    width: 100%;
+    height: 60px;
+    background-color: #147ea8;
+}
+
+.head-txt {
+    color: white;
+    float: left;
+    padding-left: 20px;
+}
+
+.bi-house-icon {
+    float: right;
+}
+
+.bi .bi-house {
+    float: right;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+.container {
+    width: 400px;
+    height: 450px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 4px 4px 3px gray, -4px -4px -3px gray;
+}
+
+.UserName, .Password, .login {
+    margin-left: 84px;
+}
+
+.UserName {
+    margin-top: 100px;
+}
+
+.Password {
+    margin-top: 10px;
+}
+
+.userid {
+    margin-top: 20px;
+    height: 30px;
+    width: 220px;
+    border-radius: 7px;
+    border: 1px solid gray;
+}
+
+.login {
+    margin-top: 25px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-left: 158px;
+    border: none;
+    border: 2px solid gray;
+    background-color: white;
+    color: green;
+}

@@ -1,0 +1,81 @@
+﻿@{ 
+    Layout = null;
+}
+@{
+    ViewBag.Title = "UserUILogin";
+}
+
+<html>
+<head>
+    <title>MRF-HRMS</title>
+
+    <link rel="stylesheet" href="~/Content/loginstyle.css" />
+</head>
+<body>
+    <div class="head-mrf">
+
+        <a href="#"><h3 class="head-txt">MRF Definer</h3></a>
+        <div class="bi-house-icon">
+
+            <a href="#"><i class="bi bi-house"></i></a>
+        </div>
+    </div>
+
+
+    <h2 style="color:#147ea8; text-align:center;">MRF Login</h2>
+
+
+    <div class="container">
+        <div class="UserName">
+            <label>UserID : </label><br>
+            <input type="text" id="UserID" class="userid" placeholder="UserID" />
+        </div>
+        <div class="Password">
+            <label>Password : </label><br>
+            <input type="password" id="Password" class="userid" placeholder="Password" />
+        </div>
+        <div class="submit">
+            <input type="button" class="login" value="Login" onclick="userlogin()" />
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script>
+
+    function userlogin() {
+        var UserIDPass = {
+            UserID: $('#UserID').val(),
+            UserPassword: $('#Password').val()            
+        };
+       
+        $.ajax({
+            url: "UserLogin/loginvalidate",
+            data: JSON.stringify(UserIDPass),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result == 1) {
+                    //alert("successfully logged In");
+                    window.location = "MRF/mrfmainscreen";
+                }
+                else {
+                    alert("Sorry Invalid User");
+                }
+
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+
+    }
+
+
+
+
+</script>
+

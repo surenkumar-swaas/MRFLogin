@@ -1,0 +1,147 @@
+﻿@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "mrfmainscreen";
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>MRF-HRMS</title>
+    <link rel="stylesheet" href="~/Content/mrfmainscreenstyle.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ 
+
+</head>
+
+<body>
+    <div class="head-mrf">
+        <a href="#"><h3 class="head-txt">MRF Definer</h3></a>
+        <div class="bi-house-icon">
+            <a href="#"><i class="bi bi-house"></i></a>
+        </div>
+    </div>
+    <div class="content">
+        <button type="button" class="btn-back" id="back">Back</button>
+        <button type="button" class="btn-viewmymrf btn-back" onclick="viewmymrf()">View My MRF</button>
+        <h2 class="general-info">General Information</h2>
+        <div class="row-person-name">
+            <div class="cl-person-name">
+                <p>Position Name<span style="color:red;">*</span></p>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="PositionName" type="text" class="form-control" name="positionname">
+                </div>
+            </div>
+
+
+
+            <div class="cl2-person-name">
+                <p>MRF Created By<span style="color:red;">*</span></p>
+
+                <div class="input-group">
+
+                    <input id="CreatedByID" type="text" class="form-control" name="createdby" value="@Session["UserID"]" style="border-radius:5px" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-3">
+            <div class="position-fill-before">
+                <p>Position to be filled before<span style="color:red;">*</span></p>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i style="font-size:20px" class="fa">&#xf073;</i></span>
+                    <input id="FilledBefore" type="date" class="form-control" name="positionname" style="width:100%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="row-4">
+            <p>MRF Created Date<span style="color:red;">*</span></p>
+
+            <div class="input-group">
+
+                <input id="CreatedByDate" type="text" class="form-control created-date" placeholder="10/12/21" name="positionname" style="border-radius:5px">
+            </div>
+        </div>
+
+        <div class="row-5">
+            <h2>MRF Details</h2>
+        </div>
+
+        <div class="row-6">
+            <div class="cl1">
+                <div class="vacancy-for">
+                    <div class="vacancy-for-float">
+                        <h6 class="vacancy-text">Vacancy For</h6>
+                    </div>
+                    <div class="vacancy-for-radio">
+                        <input type="radio" id="VacancyForID" value="1" name="field" /><label style="font-weight:lighter;">Field User &nbsp;&nbsp;</label>
+                        <input type="radio" id="VacancyForID" value="2" name="field" /><label style="font-weight:lighter;">Non-Field User</label>
+                    </div>
+                </div>
+
+                <div class="vacancy-type">
+                    <h6 class="vacancy-text">Vacancy Type</h6>
+                    <input type="radio" id="VacancyTypeID" value="1" name="field1" /><label style="font-weight:lighter;">To Be Vacant &nbsp;&nbsp;</label>
+                    <input type="radio" id="VacancyTypeID" value="2" name="field1" /><label style="font-weight:lighter;">Vacant &nbsp;&nbsp;</label>
+                    <input type="radio" id="VacancyTypeID" value="3" name="field1" /><label style="font-weight:lighter;">Expantion </label>
+
+                </div>
+
+                <div class="Territory" style="margin-top:15px;">
+                    <h6 style="font-weight:bold;">Territory/HQ<span style="color:red;">*</span></h6>
+
+                    <div class="input-group">
+
+                        <input id="Territory" type="text" class="form-control" name="Territory" style="width:526px; background-color:#e3e3e3; border-radius:5px;">
+                    </div>
+                </div>
+
+                <div class="Division" style="margin-top:15px;">
+                    <h6 style="font-weight:bold;">Division Name</h6>
+
+                    <div class="input-group">
+
+                        <input id="Division" type="text" class="form-control" name="Division" style="width:526px; background-color:#e3e3e3; border-radius:5px;">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cl2">
+                <div class="Exp" style="margin-top:42px;">
+                    <h6 style="font-weight:bold;">Experience</h6>
+                    <label style="font-weight:bold; font-size:13px;">Min Yr(s) &nbsp;</label><input type="text" id="MinYear" placeholder="0" name="minyr" style="width:56px;" />&nbsp;
+                    <label style="font-weight:bold; font-size:13px;">- Max Yr(s) &nbsp;</label><input type="text" id="MaxYear" placeholder="0" name="maxyr" style="width:56px;" />
+                </div>
+
+                <div class="CTC" style="margin-top:18px;">
+                    <h6 style="font-weight:bold;">CTC Per Annum (in lakhs)</h6>
+                    <label style="font-weight:bold; font-size:13px;">Min &nbsp;</label><input type="text" placeholder="0" name="minyr" id="MinCTC" style="width:56px;" />&nbsp;
+                    <label style="font-weight:bold; font-size:13px;">- Max &nbsp;</label><input type="text" placeholder="0" name="maxyr" id="MaxCTC" style="width:56px;" />
+                </div>
+                <div class="Additional-Requirement" style="margin-top:18px;">
+                    <h6 style="font-weight:bold;">Additional Requirement</h6>
+                    <textarea name="Additional" id="AdditionalRequirements" rows="3" cols="75" style="border-radius:5px;"></textarea>
+                </div>
+
+            </div>
+        </div>
+        <div class="row-7" style="float:right;">
+            <button type="submit" class="btn-submit-mrf" onclick="SubmitData()">Submit MRF</button>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/mrfscriptajax.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</body>
+</html>
+
